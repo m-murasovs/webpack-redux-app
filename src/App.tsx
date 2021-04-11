@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import { Navbar } from './app/Navbar';
+import { PostsList } from './features/posts/PostsList';
 
 function App() {
     return (
@@ -19,9 +20,9 @@ function App() {
                         path="/"
                         render={(): React.ReactNode => {
                             return (
-                                <section>
-                                    <h2>Nice redux bro</h2>
-                                </section>
+                                <>
+                                    <PostsList />
+                                </>
                             )
                         }}
                     />
