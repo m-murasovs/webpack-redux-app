@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     body {
-        margin: 0;
+        margin: 8rem 0 0 0;
         padding: 0;
         font-family: 'Tahoma', 'Arial', sans-serif;
         line-height: 16px;
