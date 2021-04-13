@@ -9,10 +9,12 @@ import {
 import { Navbar } from './app/Navbar';
 import { PostsList } from './features/posts/PostsList';
 import { AddPostForm } from './features/posts/AddPostForm';
+import GlobalStyle from './globalStyle';
 
 function App() {
     return (
         <Router>
+            <GlobalStyle />
             <Navbar />
             <div className="App">
                 <Switch>
