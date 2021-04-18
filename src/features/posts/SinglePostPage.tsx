@@ -1,16 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Post } from './types';
-
-interface SinglePostProps extends Post {
-    match: {
-        params: {
-            postId: string,
-        }
-    }
-}
+import { Post, SinglePostProps } from './types';
 
 const SinglePostPage: React.FC<SinglePostProps> = ({ match }) => {
     const { postId } = match.params;
@@ -30,6 +23,7 @@ const SinglePostPage: React.FC<SinglePostProps> = ({ match }) => {
             <article className="SinglePostPage-post">
                 <h2>{post.title}</h2>
                 <p className="SinglePostPage-content">{post.content}</p>
+                <Link to={`/editPost/${post.id}`} className="button">Edit post</Link>
             </article>
         </section>
     )
