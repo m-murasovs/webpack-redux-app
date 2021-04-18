@@ -21,7 +21,7 @@ const StyledFormWrap = styled.section`
     }
 `;
 
-export const AddPostForm = (): React.ReactElement => {
+const AddPostForm = (): React.ReactElement => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
@@ -71,3 +71,5 @@ export const AddPostForm = (): React.ReactElement => {
         </StyledFormWrap>
     )
 }
+
+export default AddPostForm;

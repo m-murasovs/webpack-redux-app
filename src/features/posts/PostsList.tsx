@@ -1,15 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-interface Post {
-    id: string,
-    title: string,
-    content: string
-}
+import { Post } from './types';
 
 interface State {
-    posts: [Post],
+    posts: Post[],
 }
 
 const StyledPostsList = styled.section`
@@ -38,13 +35,16 @@ const StyledPostsList = styled.section`
     }
 `;
 
-export const PostsList = (): React.ReactElement => {
+const PostsList: React.FC = () => {
     const posts = useSelector((state: State) => state.posts);
 
     const renderedPosts = posts.map((post) => (
-        <article className="post" key={post.id}>
+        <article className="PostsList=post" key={post.id}>
             <h3>{post.title}</h3>
-            <p className="post-content">{post.content.substring(0, 100)}</p>
+            <p className="PostsList-postContent">{post.content.substring(0, 100)}</p>
+            <Link to={`/posts/${post.id}`} className="PostsList-button">
+                View Post
+            </Link>
         </article>
     ));
 
@@ -55,3 +55,5 @@ export const PostsList = (): React.ReactElement => {
         </StyledPostsList>
     );
 }
+
+export default PostsList;
