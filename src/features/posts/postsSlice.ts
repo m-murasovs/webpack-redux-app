@@ -4,6 +4,7 @@ interface initialStateType {
     id: string,
     title: string,
     content: string,
+    user: string,
 }
 
 interface prepareReturnType {
@@ -16,12 +17,14 @@ const initialState: initialStateType[] = [
     {
         id: '1',
         title: 'First Post',
-        content: 'Hello'
+        content: 'Hello',
+        user: '1'
     },
     {
         id: '2',
         title: 'Second Post',
-        content: 'Anyone here?'
+        content: 'Anyone here?',
+        user: '2'
     },
 ];
 
@@ -33,13 +36,14 @@ const postsSlice = createSlice({
             reducer: (state, action) => {
                 state.push(action.payload);
             },
-            prepare: (title: string, content: string): prepareReturnType => {
+            prepare: (title: string, content: string, userId: string): prepareReturnType => {
                 const id = nanoid();
                 return {
                     payload: {
                         id,
                         title,
                         content,
+                        user: userId,
                     },
                     meta: '',
                     error: ''

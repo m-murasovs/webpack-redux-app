@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { Post } from './types';
+import { PostAuthor } from './postAuthor';
 
 interface State {
     posts: Post[],
@@ -41,6 +42,7 @@ const PostsList: React.FC = () => {
     const renderedPosts = posts.map((post) => (
         <article className="PostsList=post" key={post.id}>
             <h3>{post.title}</h3>
+            <PostAuthor userId={post.user} />
             <p className="PostsList-postContent">{post.content.substring(0, 100)}</p>
             <Link to={`/posts/${post.id}`} className="PostsList-button">
                 View Post

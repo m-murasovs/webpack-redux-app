@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Post, SinglePostProps } from './types';
+import { PostAuthor } from './postAuthor';
 
 const SinglePostPage: React.FC<SinglePostProps> = ({ match }) => {
     const { postId } = match.params;
@@ -22,6 +23,7 @@ const SinglePostPage: React.FC<SinglePostProps> = ({ match }) => {
         <section>
             <article className="SinglePostPage-post">
                 <h2>{post.title}</h2>
+                <PostAuthor userId={post.user} />
                 <p className="SinglePostPage-content">{post.content}</p>
                 <Link to={`/editPost/${post.id}`} className="button">Edit post</Link>
             </article>

@@ -2,6 +2,6 @@ import AddPostForm from './AddPostForm';
 import SinglePostPage from './SinglePostPage';
 import EditPostForm from './EditPostForm';
 import PostsList from './PostsList';
-const postsSlice = require('./postsSlice');
+import postsReducer from './postsSlice';
 
-export { AddPostForm, postsSlice, SinglePostPage, PostsList, EditPostForm };
+export { AddPostForm, postsReducer, SinglePostPage, PostsList, EditPostForm };
