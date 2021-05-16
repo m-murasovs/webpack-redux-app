@@ -1,27 +1,23 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
-
-interface initialStateType {
-    id: string,
-    title: string,
-    content: string,
-    user: string,
-}
+import { Post } from './types';
 
 interface prepareReturnType {
-    payload: initialStateType,
+    payload: Post,
     meta: string,
     error: string,
 }
 
-const initialState: initialStateType[] = [
+const initialState: Post[] = [
     {
         id: '1',
+        date: "2021-05-16T16:53:38.119Z",
         title: 'First Post',
         content: 'Hello',
         user: '1'
     },
     {
         id: '2',
+        date: "2021-05-16T16:20:38.119Z",
         title: 'Second Post',
         content: 'Anyone here?',
         user: '2'
@@ -41,6 +37,7 @@ const postsSlice = createSlice({
                 return {
                     payload: {
                         id,
+                        date: new Date().toISOString(),
                         title,
                         content,
                         user: userId,

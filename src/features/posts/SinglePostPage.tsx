@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import { Post, SinglePostProps } from './types';
 import { PostAuthor } from './postAuthor';
+import { TimeAgo } from './timeAgo';
 
 const SinglePostPage: React.FC<SinglePostProps> = ({ match }) => {
     const { postId } = match.params;
@@ -24,6 +25,7 @@ const SinglePostPage: React.FC<SinglePostProps> = ({ match }) => {
             <article className="SinglePostPage-post">
                 <h2>{post.title}</h2>
                 <PostAuthor userId={post.user} />
+                <TimeAgo timestamp={post.date} />
                 <p className="SinglePostPage-content">{post.content}</p>
                 <Link to={`/editPost/${post.id}`} className="button">Edit post</Link>
             </article>
