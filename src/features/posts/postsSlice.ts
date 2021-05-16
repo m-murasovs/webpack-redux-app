@@ -1,6 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, nanoid } from '@reduxjs/toolkit';
 
-const initialState = [
+interface initialStateType {
+    id: string,
+    title: string,
+    content: string,
+}
+
+interface prepareReturnType {
+    payload: initialStateType,
+    meta: string,
+    error: string,
+}
+
+const initialState: initialStateType[] = [
     {
         id: '1',
         title: 'First Post',
@@ -17,8 +29,22 @@ const postsSlice = createSlice({
     name: 'posts',
     initialState,
     reducers: {
-        postAdded(state, action) {
-            state.push(action.payload);
+        postAdded: {
+            reducer: (state, action) => {
+                state.push(action.payload);
+            },
+            prepare: (title: string, content: string): prepareReturnType => {
+                const id = nanoid();
+                return {
+                    payload: {
+                        id,
+                        title,
+                        content,
+                    },
+                    meta: '',
+                    error: ''
+                }
+            },
         },
         postUpdated(state, action) {
             const { id, title, content } = action.payload;
