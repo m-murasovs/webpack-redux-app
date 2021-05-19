@@ -4,6 +4,9 @@ export interface Post {
     title: string,
     content: string,
     user: string,
+    reactions: {
+        [key: string]: number,
+    },
 }
 
 export interface SinglePostProps extends Post {

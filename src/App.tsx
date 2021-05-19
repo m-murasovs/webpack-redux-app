@@ -10,7 +10,7 @@ import { Navbar } from './app/Navbar';
 import { PostsList, AddPostForm, SinglePostPage, EditPostForm } from './features/posts';
 import GlobalStyle from './globalStyle';
 
-// const LEFT_AT = "https://redux.js.org/tutorials/essentials/part-4-using-data#preparing-action-payloads";
+// const LEFT_AT = "https://redux.js.org/tutorials/essentials/part-4-using-data#post-reaction-buttons";
 
 function App() {
     return (

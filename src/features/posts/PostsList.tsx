@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { Post } from './types';
 import { PostAuthor } from './postAuthor';
 import { TimeAgo } from './timeAgo';
+import { ReactionButtons } from './ReactionButtons';
 
 interface State {
     posts: Post[],
@@ -48,9 +49,13 @@ const PostsList: React.FC = () => {
             <PostAuthor userId={post.user} />
             <TimeAgo timestamp={post.date} />
             <p className="PostsList-postContent">{post.content.substring(0, 100)}</p>
-            <Link to={`/posts/${post.id}`} className="PostsList-button">
+            <Link
+                to={`/posts/${post.id}`}
+                className="PostsList-button"
+            >
                 View Post
             </Link>
+            <ReactionButtons post={post} />
         </article>
     ));
 
