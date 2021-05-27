@@ -6,15 +6,16 @@ import type { RootState } from '../../app/store';
 import { postAdded } from './postsSlice';
 
 const StyledFormWrap = styled.section`
-    margin: 2rem;
+    display: block;
+    max-width: 40rem;
+    text-align: left;
+
+    h5 {
+        margin: 1rem auto;
+    }
+
 
     form {
-        display: inline-grid;
-        
-        label, button {
-            margin: 1rem 0;
-        }
-
         button {
             background: #bffcc6;
         }
@@ -51,8 +52,8 @@ const AddPostForm = (): React.ReactElement => {
     ))
 
     return (
-        <StyledFormWrap>
-            <h2>Add a new post</h2>
+        <StyledFormWrap className="card">
+            <h5>Add a new post</h5>
             <form>
                 <label htmlFor="postTitle">Post title:</label>
                 <input

@@ -7,6 +7,7 @@ export interface Post {
     reactions: {
         [key: string]: number,
     },
+    className: string,
 }
 
 export interface SinglePostProps extends Post {

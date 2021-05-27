@@ -1,4 +1,4 @@
-# Relax, it's just practice
+# Redux / React / Typescript practice
 
 This project is a React, Redux, TypeScript practice app based on the Redux tutorial: <https://redux.js.org/tutorials/essentials>. The React and Redux parts are from the tutorial, and I added the TypeScript part myself.
 

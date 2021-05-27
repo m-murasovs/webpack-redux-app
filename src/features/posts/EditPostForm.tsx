@@ -8,18 +8,6 @@ import { Post, SinglePostProps } from './types';
 
 const StyledFormWrap = styled.section`
     margin: 2rem;
-
-    form {
-        display: inline-grid;
-        
-        label, button {
-            margin: 1rem 0;
-        }
-
-        button {
-            background: #bffcc6;
-        }
-    }
 `;
 
 const EditPostForm: React.FC<SinglePostProps> = ({ match }) => {
@@ -50,7 +38,7 @@ const EditPostForm: React.FC<SinglePostProps> = ({ match }) => {
     }
 
     return (
-        <StyledFormWrap>
+        <StyledFormWrap className="card">
             <h2>Edit post</h2>
             <form>
                 <label htmlFor="postTitle">Post title:</label>

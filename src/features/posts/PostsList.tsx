@@ -13,28 +13,12 @@ interface State {
 }
 
 const StyledPostsList = styled.section`
-    h2 {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .post {
-        display: block;
-        align-items: center;
-        padding: 0 1rem;
-        border: 1px solid rgb(177, 174, 174);
-        border-radius: 0.5rem;
-        margin-bottom: 1rem;
-        max-width: 50rem;
-    }
-
-    .post-excerpt h3 {
-        margin: 0;
-        font-size: 1.5rem;
-    }
-
-    p.post-content {
+    p.PostsList-content {
         margin-top: 1rem;
+    }
+
+    .PostsList-reactions {
+        margin-top: 0.5rem;
     }
 `;
 
@@ -44,24 +28,23 @@ const PostsList: React.FC = () => {
     const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date));
 
     const renderedPosts = orderedPosts.map((post) => (
-        <article className="PostsList=post" key={post.id}>
-            <h3>{post.title}</h3>
+        <article className="PostsList-post card" key={post.id}>
             <PostAuthor userId={post.user} />
             <TimeAgo timestamp={post.date} />
-            <p className="PostsList-postContent">{post.content.substring(0, 100)}</p>
+            <p><strong>{post.title}</strong></p>
+            <p className="PostsList-content">{post.content.substring(0, 100)}</p>
             <Link
                 to={`/posts/${post.id}`}
                 className="PostsList-button"
             >
                 View Post
             </Link>
-            <ReactionButtons post={post} />
+            <ReactionButtons post={post} className="PostsList-reactions" />
         </article>
     ));
 
     return (
         <StyledPostsList>
-            <h2>Posts</h2>
             {renderedPosts}
         </StyledPostsList>
     );

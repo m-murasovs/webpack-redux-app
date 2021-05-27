@@ -8,6 +8,15 @@ import { PostAuthor } from './postAuthor';
 import { TimeAgo } from './timeAgo';
 import { ReactionButtons } from './ReactionButtons';
 
+const StyledPostPage = styled.section`
+    text-align: left;
+    margin: 1rem;
+
+    .SinglePostPage-button {
+        margin-top: 0.5rem;
+    }
+`;
+
 const SinglePostPage: React.FC<SinglePostProps> = ({ match }) => {
     const { postId } = match.params;
 
@@ -15,28 +24,27 @@ const SinglePostPage: React.FC<SinglePostProps> = ({ match }) => {
 
     if (!post) {
         return (
-            <section>
+            <StyledPostPage>
                 <h2>Post not found :(</h2>
-            </section>
+            </StyledPostPage>
         )
     }
 
     return (
-        <section>
-            <article className="SinglePostPage-post">
-                <h2>{post.title}</h2>
+        <StyledPostPage>
+            <article className="SinglePostPage-post card">
                 <PostAuthor userId={post.user} />
                 <TimeAgo timestamp={post.date} />
+                <p><strong>{post.title}</strong></p>
                 <p className="SinglePostPage-content">{post.content}</p>
                 <ReactionButtons post={post} />
-                <Link
-                    to={`/editPost/${post.id}`}
-                    className="button"
-                >
-                    Edit post
-                </Link>
+                <div className="SinglePostPage-button">
+                    <Link to={`/editPost/${post.id}`}>
+                        Edit post
+                    </Link>
+                </div>
             </article>
-        </section>
+        </StyledPostPage>
     )
 }
 

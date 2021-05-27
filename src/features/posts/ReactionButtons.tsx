@@ -12,7 +12,7 @@ const reactionEmoji = {
     eyes: '👀'
 };
 
-export const ReactionButtons = ({ post }: { post: Post }) => {
+export const ReactionButtons = ({ post, className }: { post: Post, className?: string }) => {
     const dispatch = useDispatch();
     const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
         return (
@@ -28,5 +28,5 @@ export const ReactionButtons = ({ post }: { post: Post }) => {
         )
     });
 
-    return <div>{reactionButtons}</div>
+    return <div className={className}>{reactionButtons}</div>
 }
